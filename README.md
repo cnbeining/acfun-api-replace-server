@@ -13,7 +13,7 @@ Create a python application
 Add this upstream openshiftwebpy repo
 
     cd openshiftwebpy
-    git remote add upstream -m master git://github.com/openshift/openshiftwebpy.git
+    git remote add upstream -m master git://github.com/openshift-quickstart/openshiftwebpy.git
     git pull -s recursive -X theirs upstream master
 
 Then push the repo upstream

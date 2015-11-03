@@ -12,7 +12,8 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 urls = (
-    '/getVideo', 'getVideo'
+    '/getVideo', 'getVideo',
+    '/crossdomain.xml', 'crossdomain',
 )
 
 class getVideo:
@@ -39,6 +40,10 @@ class getVideo:
             res['sourceType'] = 'letv'  #force change back
             
         return str(res).replace("u'", "'").replace("'", '"').replace('True', 'true')
+
+class crossdomain:
+    def GET(self): 
+        raise web.seeother("/static/crossdomain.xml")
 
 app = web.application(urls, globals())
 #app.run()

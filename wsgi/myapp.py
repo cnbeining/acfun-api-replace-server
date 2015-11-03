@@ -26,8 +26,18 @@ class getVideo:
         
         api_url = 'http://www.acfun.tv/video/getVideo.aspx?id={id}'.format(id = id)
         
+        headers = {
+            'dnt': '1',
+            'accept-encoding': 'gzip, deflate, sdch',
+            'x-requested-with': 'ShockwaveFlash/19.0.0.226',
+            'accept-language': 'en-CA,en;q=0.8,en-US;q=0.6,zh-CN;q=0.4,zh;q=0.2',
+            'user-agent': 'Acfun-API / 0.0.1 (i@cnbeining.com) (Python-urllib/{python_ver_str}, like libcurl/1.0 NSS-Mozilla/2.0)',
+            'accept': '*/*',
+        }        
+        api_url = 'http://www.acfun.tv/video/getVideo.aspx?id={id}'.format(id = id)
+        
         try:
-            res = requests.get(api_url)
+            res = requests.get(api_url, headers=headers)
             res = res.json()
         except Exception as e:
             return 'ERROR'

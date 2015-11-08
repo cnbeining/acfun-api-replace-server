@@ -13,7 +13,13 @@ chrome.webRequest.onBeforeRequest.addListener(
                     "https://acfun-api.cnbeining.com/getVideo?");
             return {redirectUrl: url};
         }
+        if (details.url.match("http://www.acfun.tv/video/createVideo.aspx?")) {
+            var url = details.url.replace(
+                    "zhuzhan",
+                    "letv");
+            return {redirectUrl: url};
+        }
     },
-    {urls:["http://cdn.aixifan.com/player/sslhomura/AcNewPlayer151029.swf*", "http://www.acfun.tv/video/getVideo.aspx?*"]},
+    {urls:["http://cdn.aixifan.com/player/sslhomura/AcNewPlayer151029.swf*", "http://www.acfun.tv/video/getVideo.aspx?*", "http://www.acfun.tv/video/createVideo.aspx?*"]},
     ["blocking"]
 );

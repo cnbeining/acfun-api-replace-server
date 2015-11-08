@@ -1,10 +1,10 @@
 chrome.webRequest.onBeforeRequest.addListener(
     function(details) {
         console.log(details.url);
-        if (details.url.match("http://cdn.aixifan.com/player/sslhomura/AcNewPlayer151029.swf")) {
+        if (details.url.match("*://cdn.aixifan.com/player/sslhomura/AcNewPlayer*")) {
             var url = details.url.replace(
-                    "http://cdn.aixifan.com/player/sslhomura/AcNewPlayer151029.swf",
-                    "https://acfun-api.cnbeining.com/static/AcNewPlayer151029.swf");
+                    "://cdn.aixifan.com/player/sslhomura/",
+                    "://acfun-api.cnbeining.com/static/");
             return {redirectUrl: url};
         }
         if (details.url.match("http://www.acfun.tv/video/getVideo.aspx?")) {
